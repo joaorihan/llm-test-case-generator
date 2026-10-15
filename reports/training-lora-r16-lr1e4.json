@@ -1,0 +1,34 @@
+{
+  "name": "lora-r16-lr1e4",
+  "base_model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "gpu": "AMD Radeon RX 9070 XT",
+  "pytorch": "2.12.0+rocm7.14.1",
+  "rocm_hip": "7.14.60850",
+  "seed": 42,
+  "rank": 16,
+  "learning_rate": 0.0001,
+  "epochs_requested": 2,
+  "batch_size": 1,
+  "gradient_accumulation": 4,
+  "max_length": 768,
+  "train_examples": 192,
+  "validation_examples": 24,
+  "trainable_parameters": 2179072,
+  "optimizer_steps": 96,
+  "elapsed_seconds": 110.61,
+  "peak_vram_gb": 3.74,
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss": 0.54555,
+      "validation_loss": 0.20123,
+      "steps": 192
+    },
+    {
+      "epoch": 2,
+      "train_loss": 0.07131,
+      "validation_loss": 0.01879,
+      "steps": 384
+    }
+  ]
+}

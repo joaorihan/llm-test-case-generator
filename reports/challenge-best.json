@@ -1,0 +1,139 @@
+{
+  "name": "lora-r16-lr2e4-challenge",
+  "split": "challenge",
+  "base_model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "adapter": "outputs\\llm-test-cases-ptbr\\models\\best-adapter",
+  "gpu": "AMD Radeon RX 9070 XT",
+  "pytorch": "2.12.0+rocm7.14.1",
+  "rocm_hip": "7.14.60850",
+  "total": 12,
+  "elapsed_seconds": 64.91,
+  "peak_vram_gb": 3.14,
+  "metrics": {
+    "json_valido": 1.0,
+    "tres_casos": 1.0,
+    "esquema_completo": 1.0
+  },
+  "items": [
+    {
+      "id": "obrigatorio-90",
+      "tipo": "obrigatorio",
+      "requisito": "Para abrir um chamado, o código de rastreio precisa ser informado; espaços isolados não valem.",
+      "referencia": "{\"casos\":[{\"titulo\":\"Código informado\",\"entrada\":\"código de rastreio=BR123\",\"resultado_esperado\":\"Chamado aceito.\"},{\"titulo\":\"Código ausente\",\"entrada\":\"código de rastreio=vazio\",\"resultado_esperado\":\"Chamado rejeitado; código obrigatório.\"},{\"titulo\":\"Só espaços\",\"entrada\":\"código de rastreio=espaços\",\"resultado_esperado\":\"Chamado rejeitado; espaços não são conteúdo.\"}]}",
+      "resposta": "{\"casos\":[{\"titulo\":\"Valor preenchido\",\"entrada\":\"código de rastreio=valor válido\",\"resultado_esperado\":\"Chamado aberto.\"},{\"titulo\":\"Valor vazio\",\"entrada\":\"código de rastreio=vazio\",\"resultado_esperado\":\"Chamado negado; informar que o campo é obrigatório.\"},{\"titulo\":\"Apenas espaços前置is\",\"entrada\":\"código de rastreio=espaços em branco\",\"resultado_esperado\":\"Chamado negado; espaços não contam como conteúdo.\"}]}",
+      "json_valido": true,
+      "tres_casos": true,
+      "esquema_completo": true
+    },
+    {
+      "id": "obrigatorio-91",
+      "tipo": "obrigatorio",
+      "requisito": "A justificativa da solicitação não pode ficar em branco ao enviar o formulário.",
+      "referencia": "{\"casos\":[{\"titulo\":\"Justificativa presente\",\"entrada\":\"justificativa=necessidade operacional\",\"resultado_esperado\":\"Solicitação aceita.\"},{\"titulo\":\"Justificativa vazia\",\"entrada\":\"justificativa=vazio\",\"resultado_esperado\":\"Solicitação rejeitada; justificativa obrigatória.\"},{\"titulo\":\"Espaços\",\"entrada\":\"justificativa=espaços\",\"resultado_esperado\":\"Solicitação rejeitada; espaços não são justificativa.\"}]}",
+      "resposta": "{\"casos\":[{\"titulo\":\"Valor preenchido\",\"entrada\":\"justificativa=valor\", \"resultado_esperado\":\"Registro aceito.\"},{\"titulo\":\"Valor vazio\",\"entrada\":\"justificativa=vazio\", \"resultado_esperado\":\"Registro rejeitado; informar que o campo é obrigatório.\"},{\"titulo\":\"Apenas espaços\",\"entrada\":\"justificativa=espaços em branco\", \"resultado_esperado\":\"Registro rejeitado; espaços não contam como conteúdo.\"}]}",
+      "json_valido": true,
+      "tres_casos": true,
+      "esquema_completo": true
+    },
+    {
+      "id": "comprimento-90",
+      "tipo": "comprimento",
+      "requisito": "No cadastro, aceite apelidos com 5 a 18 caracteres, contando os extremos.",
+      "referencia": "{\"casos\":[{\"titulo\":\"Mínimo válido\",\"entrada\":\"apelido com 5 caracteres\",\"resultado_esperado\":\"Apelido aceito.\"},{\"titulo\":\"Curto demais\",\"entrada\":\"apelido com 4 caracteres\",\"resultado_esperado\":\"Apelido rejeitado; mínimo de 5.\"},{\"titulo\":\"Longo demais\",\"entrada\":\"apelido com 19 caracteres\",\"resultado_esperado\":\"Apelido rejeitado; máximo de 18.\"}]}",
+      "resposta": "{\"casos\":[{\"titulo\":\"No limite mínimo\",\"entrada\":\"apelido com 5 caracteres\",\"resultado_esperado\":\"Valor aceito.\"},{\"titulo\":\"Abaixo do mínimo\",\"entrada\":\"apelido com 4 caracteres\",\"resultado_esperado\":\"Valor rejeitado; mínimo de 5 caracteres.\"},{\"titulo\":\"Acima do máximo\",\"entrada\":\"apelido com 19 caracteres\",\"resultado_esperado\":\"Valor rejeitado; máximo de 18 caracteres.\"}]}",
+      "json_valido": true,
+      "tres_casos": true,
+      "esquema_completo": true
+    },
+    {
+      "id": "comprimento-91",
+      "tipo": "comprimento",
+      "requisito": "Uma observação enviada pelo usuário precisa ter pelo menos 12 e no máximo 80 caracteres.",
+      "referencia": "{\"casos\":[{\"titulo\":\"No limite\",\"entrada\":\"observação com 12 caracteres\",\"resultado_esperado\":\"Observação aceita.\"},{\"titulo\":\"Abaixo\",\"entrada\":\"observação com 11 caracteres\",\"resultado_esperado\":\"Observação rejeitada; mínimo de 12.\"},{\"titulo\":\"Acima\",\"entrada\":\"observação com 81 caracteres\",\"resultado_esperado\":\"Observação rejeitada; máximo de 80.\"}]}",
+      "resposta": "{\"casos\":[{\"titulo\":\"No limite mínimo\",\"entrada\":\"observação com 12 caracteres\",\"resultado_esperado\":\"Valor aceito.\"},{\"titulo\":\"Abaixo do mínimo\",\"entrada\":\"observação com 11 caracteres\",\"resultado_esperado\":\"Valor rejeitado; mínimo de 12 caracteres.\"},{\"titulo\":\"Acima do máximo\",\"entrada\":\"observação com 81 caracteres\",\"resultado_esperado\":\"Valor rejeitado; máximo de 80 caracteres.\"}]}",
+      "json_valido": true,
+      "tres_casos": true,
+      "esquema_completo": true
+    },
+    {
+      "id": "faixa_inteira-90",
+      "tipo": "faixa_inteira",
+      "requisito": "Permita registrar de 2 até 15 participantes por turma, sem números fora dessa faixa.",
+      "referencia": "{\"casos\":[{\"titulo\":\"Mínimo\",\"entrada\":\"participantes=2\",\"resultado_esperado\":\"Quantidade aceita.\"},{\"titulo\":\"Um a menos\",\"entrada\":\"participantes=1\",\"resultado_esperado\":\"Quantidade rejeitada; mínimo de 2.\"},{\"titulo\":\"Um a mais\",\"entrada\":\"participantes=16\",\"resultado_esperado\":\"Quantidade rejeitada; máximo de 15.\"}]}",
+      "resposta": "{\"casos\":[{\"titulo\":\"Limite inferior\",\"entrada\":\"participantes=2\",\"resultado_esperado\":\"Valor aceito.\"},{\"titulo\":\"Abaixo da faixa\",\"entrada\":\"participantes=1\",\"resultado_esperado\":\"Valor rejeitado; mínimo permitido é 2.\"},{\"titulo\":\"Acima da faixa\",\"entrada\":\"participantes=16\",\"resultado_esperado\":\"Valor rejeitado; máximo permitido é 15.\"}]}",
+      "json_valido": true,
+      "tres_casos": true,
+      "esquema_completo": true
+    },
+    {
+      "id": "faixa_inteira-91",
+      "tipo": "faixa_inteira",
+      "requisito": "O usuário pode configurar de zero a três tentativas de repetição, inclusive.",
+      "referencia": "{\"casos\":[{\"titulo\":\"Zero permitido\",\"entrada\":\"tentativas=0\",\"resultado_esperado\":\"Valor aceito.\"},{\"titulo\":\"Negativo\",\"entrada\":\"tentativas=-1\",\"resultado_esperado\":\"Valor rejeitado; mínimo de 0.\"},{\"titulo\":\"Acima\",\"entrada\":\"tentativas=4\",\"resultado_esperado\":\"Valor rejeitado; máximo de 3.\"}]}",
+      "resposta": "{\"casos\":[{\"titulo\":\"Limite mínimo\",\"entrada\":\"tentativas=0\",\"resultado_esperado\":\"Valor aceito.\"},{\"titulo\":\"Abaixo da mínima\",\"entrada\":\"tentativas=1\",\"resultado_esperado\":\"Valor rejeitado; mínimo permitido é 0.\"},{\"titulo\":\"Acima da máxima\",\"entrada\":\"tentativas=4\",\"resultado_esperado\":\"Valor rejeitado; máximo permitido é 3.\"}]}",
+      "json_valido": true,
+      "tres_casos": true,
+      "esquema_completo": true
+    },
+    {
+      "id": "email-90",
+      "tipo": "email",
+      "requisito": "Na conta do usuário, verifique se o email alternativo tem sintaxe de endereço eletrônico.",
+      "referencia": "{\"casos\":[{\"titulo\":\"Válido\",\"entrada\":\"email alternativo=ana@exemplo.com\",\"resultado_esperado\":\"Endereço aceito.\"},{\"titulo\":\"Falta arroba\",\"entrada\":\"email alternativo=anaexemplo.com\",\"resultado_esperado\":\"Endereço rejeitado.\"},{\"titulo\":\"Falta domínio\",\"entrada\":\"email alternativo=ana@\",\"resultado_esperado\":\"Endereço rejeitado.\"}]}",
+      "resposta": "{\"casos\":[{\"titulo\":\"Endereço válido\",\"entrada\":\"email=ana18@exemplo.com\",\"resultado_esperado\":\"Endereço aceito.\"},{\"titulo\":\"Sem arroba\",\"entrada\":\"email=ana18exemplo.com\",\"resultado_esperado\":\"Endereço rejeitado por formato inválido.\"},{\"titulo\":\"Sem domínio\",\"entrada\":\"email=ana18@\",\"resultado_esperado\":\"Endereço rejeitado por formato inválido.\"}]}",
+      "json_valido": true,
+      "tres_casos": true,
+      "esquema_completo": true
+    },
+    {
+      "id": "email-91",
+      "tipo": "email",
+      "requisito": "O contato técnico informado na abertura de incidente deve ser um email bem formado.",
+      "referencia": "{\"casos\":[{\"titulo\":\"Válido\",\"entrada\":\"contato técnico=suporte@empresa.com\",\"resultado_esperado\":\"Endereço aceito.\"},{\"titulo\":\"Sem arroba\",\"entrada\":\"contato técnico=suporteempresa.com\",\"resultado_esperado\":\"Endereço rejeitado.\"},{\"titulo\":\"Sem domínio\",\"entrada\":\"contato técnico=suporte@\",\"resultado_esperado\":\"Endereço rejeitado.\"}]}",
+      "resposta": "{\"casos\":[{\"titulo\":\"Nome completo\",\"entrada\":\"contato técnico=ana32@exemplo.com\",\"resultado_esperado\":\"Endereço aceito.\"},{\"titulo\":\"Sem nome\",\"entrada\":\"contato técnico=ana32@exemplo.com\",\"resultado_esperado\":\"Endereço rejeitado; nome obrigatório.\"},{\"titulo\":\"Sem arroba\",\"entrada\":\"contato técnico=ana32exemplo.com\",\"resultado_esperado\":\"Endereço rejeitado; arroba necessária.\"}]}",
+      "json_valido": true,
+      "tres_casos": true,
+      "esquema_completo": true
+    },
+    {
+      "id": "opcoes-90",
+      "tipo": "opcoes",
+      "requisito": "Na compra, o tipo de pagamento é obrigatório e só pode ser pix, boleto ou cartão.",
+      "referencia": "{\"casos\":[{\"titulo\":\"Pix\",\"entrada\":\"pagamento=pix\",\"resultado_esperado\":\"Compra aceita.\"},{\"titulo\":\"Tipo desconhecido\",\"entrada\":\"pagamento=cheque\",\"resultado_esperado\":\"Compra rejeitada; tipo não permitido.\"},{\"titulo\":\"Ausente\",\"entrada\":\"pagamento=vazio\",\"resultado_esperado\":\"Compra rejeitada; pagamento obrigatório.\"}]}",
+      "resposta": "{\"casos\":[{\"titulo\":\"Opção permitida\",\"entrada\":\"tipo de pagamento=pix\",\"resultado_esperado\":\"Valor aceito.\"},{\"titulo\":\"Opção desconhecida\",\"entrada\":\"tipo de pagamento=outro\",\"resultado_esperado\":\"Valor rejeitado; opção não permitida.\"},{\"titulo\":\"Sem seleção\",\"entrada\":\"tipo de pagamento=vazio\",\"resultado_esperado\":\"Valor rejeitado; seleção obrigatória.\"}]}",
+      "json_valido": true,
+      "tres_casos": true,
+      "esquema_completo": true
+    },
+    {
+      "id": "opcoes-91",
+      "tipo": "opcoes",
+      "requisito": "Escolha obrigatoriamente um nível de acesso entre consulta, escrita e gestão.",
+      "referencia": "{\"casos\":[{\"titulo\":\"Consulta\",\"entrada\":\"acesso=consulta\",\"resultado_esperado\":\"Seleção aceita.\"},{\"titulo\":\"Outro nível\",\"entrada\":\"acesso=superadmin\",\"resultado_esperado\":\"Seleção rejeitada.\"},{\"titulo\":\"Sem nível\",\"entrada\":\"acesso=vazio\",\"resultado_esperado\":\"Seleção rejeitada; escolha obrigatória.\"}]}",
+      "resposta": "{\"casos\":[{\"titulo\":\"Acesso permitido\",\"entrada\":\"nível de acesso=consulta\",\"resultado_esperado\":\"Permissão concedida.\"},{\"titulo\":\"Acesso negado\",\"entrada\":\"nível de acesso=outro\",\"resultado_esperado\":\"Permissão rejeitada; tente novamente com uma permissão aceita.\"},{\"titulo\":\"Acesso a menos privilegiado\",\"entrada\":\"nível de acesso=menor que permitido\",\"resultado_esperado\":\"Permissão rejeitada; tente novamente com uma permissão maior.\"}]}",
+      "json_valido": true,
+      "tres_casos": true,
+      "esquema_completo": true
+    },
+    {
+      "id": "ordem_datas-90",
+      "tipo": "ordem_datas",
+      "requisito": "O prazo de entrega pode coincidir com a solicitação, mas nunca ser anterior a ela.",
+      "referencia": "{\"casos\":[{\"titulo\":\"Posterior\",\"entrada\":\"solicitação=01/04/2026; entrega=03/04/2026\",\"resultado_esperado\":\"Prazo aceito.\"},{\"titulo\":\"Mesmo dia\",\"entrada\":\"solicitação=01/04/2026; entrega=01/04/2026\",\"resultado_esperado\":\"Prazo aceito.\"},{\"titulo\":\"Anterior\",\"entrada\":\"solicitação=03/04/2026; entrega=01/04/2026\",\"resultado_esperado\":\"Prazo rejeitado.\"}]}",
+      "resposta": "{\"casos\":[{\"titulo\":\"Término posterior\",\"entrada\":\"prazo=10/03/2026; solicita=9/03/2026\",\"resultado_esperado\":\"Entrega posterior.\"},{\"titulo\":\"Mesmo dia\",\"entrada\":\"prazo=10/03/2026; solicita=10/03/2026\",\"resultado_esperado\":\"Data igual.\"},{\"titulo\":\"Término anterior\",\"entrada\":\"prazo=11/03/2026; solicita=10/03/2026\",\"resultado_esperado\":\"Entrega anteriores.\"}]}",
+      "json_valido": true,
+      "tres_casos": true,
+      "esquema_completo": true
+    },
+    {
+      "id": "ordem_datas-91",
+      "tipo": "ordem_datas",
+      "requisito": "Em uma manutenção, a data de encerramento não pode anteceder a data de abertura.",
+      "referencia": "{\"casos\":[{\"titulo\":\"Posterior\",\"entrada\":\"abertura=10/05/2026; encerramento=11/05/2026\",\"resultado_esperado\":\"Período aceito.\"},{\"titulo\":\"Igual\",\"entrada\":\"abertura=10/05/2026; encerramento=10/05/2026\",\"resultado_esperado\":\"Período aceito.\"},{\"titulo\":\"Anterior\",\"entrada\":\"abertura=11/05/2026; encerramento=10/05/2026\",\"resultado_esperado\":\"Período rejeitado.\"}]}",
+      "resposta": "{\"casos\":[{\"titulo\":\"Término posterior\",\"entrada\":\"abertura em 10/03/2026; término em 12/03/2026\",\"resultado_esperado\":\"Período aceito.\"},{\"titulo\":\"Mesmo dia\",\"entrada\":\"abertura em 10/03/2026; término em 10/03/2026\",\"resultado_esperado\":\"Período aceito; datas iguais são permitidas.\"},{\"titulo\":\"Término anterior\",\"entrada\":\"abertura em 9/03/2026; término em 12/03/2026\",\"resultado_esperado\":\"Período rejeitado; término antes da abertura.\"}]}",
+      "json_valido": true,
+      "tres_casos": true,
+      "esquema_completo": true
+    }
+  ]
+}

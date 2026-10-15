@@ -1,0 +1,259 @@
+{
+  "name": "lora-r16-lr1e4",
+  "split": "test",
+  "base_model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "adapter": "work\\runs\\lora-r16-lr1e4\\adapter",
+  "gpu": "AMD Radeon RX 9070 XT",
+  "pytorch": "2.12.0+rocm7.14.1",
+  "rocm_hip": "7.14.60850",
+  "total": 24,
+  "elapsed_seconds": 143.99,
+  "peak_vram_gb": 3.14,
+  "metrics": {
+    "json_valido": 1.0,
+    "tres_casos": 1.0,
+    "esquema_completo": 1.0
+  },
+  "items": [
+    {
+      "id": "obrigatorio-01",
+      "tipo": "obrigatorio",
+      "requisito": "No formulário de cadastro, o campo 'nome de usuário' é obrigatório.",
+      "referencia": "{\"casos\":[{\"titulo\":\"Valor preenchido\",\"entrada\":\"nome de usuário=valor válido\",\"resultado_esperado\":\"Registro aceito.\"},{\"titulo\":\"Valor vazio\",\"entrada\":\"nome de usuário=vazio\",\"resultado_esperado\":\"Registro rejeitado; informar que o campo é obrigatório.\"},{\"titulo\":\"Apenas espaços\",\"entrada\":\"nome de usuário=espaços em branco\",\"resultado_esperado\":\"Registro rejeitado; espaços não contam como conteúdo.\"}]}",
+      "resposta": "{\"casos\":[{\"titulo\":\"Valor preenchido\",\"entrada\":\"nome de usuário=valor válido\",\"resultado_esperado\":\"Registro aceito.\"},{\"titulo\":\"Valor vazio\",\"entrada\":\"nome de usuário=vazio\",\"resultado_esperado\":\"Registro rejeitado; informar que o campo é obrigatório.\"},{\"titulo\":\"Apenas espaços\",\"entrada\":\"nome de usuário=espaços em branco\",\"resultado_esperado\":\"Registro rejeitado; espaços não contam como conteúdo.\"}]}",
+      "json_valido": true,
+      "tres_casos": true,
+      "esquema_completo": true
+    },
+    {
+      "id": "comprimento-01",
+      "tipo": "comprimento",
+      "requisito": "O campo 'nome de usuário' deve ter entre 4 e 13 caracteres, inclusive.",
+      "referencia": "{\"casos\":[{\"titulo\":\"No limite mínimo\",\"entrada\":\"nome de usuário com 4 caracteres\",\"resultado_esperado\":\"Valor aceito.\"},{\"titulo\":\"Abaixo do mínimo\",\"entrada\":\"nome de usuário com 3 caracteres\",\"resultado_esperado\":\"Valor rejeitado; mínimo de 4 caracteres.\"},{\"titulo\":\"Acima do máximo\",\"entrada\":\"nome de usuário com 14 caracteres\",\"resultado_esperado\":\"Valor rejeitado; máximo de 13 caracteres.\"}]}",
+      "resposta": "{\"casos\":[{\"titulo\":\"No limite mínimo\",\"entrada\":\"nome de usuário com 4 caracteres\",\"resultado_esperado\":\"Valor aceito.\"},{\"titulo\":\"Abaixo da mínima\",\"entrada\":\"nome de usuário com 3 caracteres\",\"resultado_esperado\":\"Valor rejeitado; mínimo de 4 caracteres.\"},{\"titulo\":\"Acima da máxima\",\"entrada\":\"nome de usuário com 14 caracteres\",\"resultado_esperado\":\"Valor rejeitado; máximo de 13 caracteres.\"}]}",
+      "json_valido": true,
+      "tres_casos": true,
+      "esquema_completo": true
+    },
+    {
+      "id": "faixa_inteira-01",
+      "tipo": "faixa_inteira",
+      "requisito": "O campo 'idade' aceita inteiros de 2 a 7, incluindo os limites.",
+      "referencia": "{\"casos\":[{\"titulo\":\"Limite inferior\",\"entrada\":\"idade=2\",\"resultado_esperado\":\"Valor aceito.\"},{\"titulo\":\"Abaixo da faixa\",\"entrada\":\"idade=1\",\"resultado_esperado\":\"Valor rejeitado; mínimo permitido é 2.\"},{\"titulo\":\"Acima da faixa\",\"entrada\":\"idade=8\",\"resultado_esperado\":\"Valor rejeitado; máximo permitido é 7.\"}]}",
+      "resposta": "{\"casos\":[{\"titulo\":\"Limite inferior\",\"entrada\":\"idade=2\",\"resultado_esperado\":\"Valor aceito.\"},{\"titulo\":\"Abaixo da faixa\",\"entrada\":\"idade=1\",\"resultado_esperado\":\"Valor rejeitado; mínimo permitido é 2.\"},{\"titulo\":\"Acima da faixa\",\"entrada\":\"idade=8\",\"resultado_esperado\":\"Valor rejeitado; máximo permitido é 7.\"}]}",
+      "json_valido": true,
+      "tres_casos": true,
+      "esquema_completo": true
+    },
+    {
+      "id": "email-01",
+      "tipo": "email",
+      "requisito": "No sistema acadêmico, o campo 'email do fornecedor' deve conter um endereço de email válido.",
+      "referencia": "{\"casos\":[{\"titulo\":\"Endereço válido\",\"entrada\":\"email do fornecedor=ana1@exemplo.com\",\"resultado_esperado\":\"Endereço aceito.\"},{\"titulo\":\"Sem arroba\",\"entrada\":\"email do fornecedor=ana1exemplo.com\",\"resultado_esperado\":\"Endereço rejeitado por formato inválido.\"},{\"titulo\":\"Sem domínio\",\"entrada\":\"email do fornecedor=ana1@\",\"resultado_esperado\":\"Endereço rejeitado por formato inválido.\"}]}",
+      "resposta": "{\"casos\":[{\"titulo\":\"Endereço válido\",\"entrada\":\"email do fornecedor=ana12@exemplo.com\",\"resultado_esperado\":\"Endereço aceito.\"},{\"titulo\":\"Sem arroba\",\"entrada\":\"email do fornecedor=ana12exemplo.com\",\"resultado_esperado\":\"Endereço rejeitado por formato inválido.\"},{\"titulo\":\"Sem domínio\",\"entrada\":\"email do fornecedor=ana12@\",\"resultado_esperado\":\"Endereço rejeitado por formato inválido.\"}]}",
+      "json_valido": true,
+      "tres_casos": true,
+      "esquema_completo": true
+    },
+    {
+      "id": "opcoes-01",
+      "tipo": "opcoes",
+      "requisito": "No sistema acadêmico, o campo obrigatório 'status' aceita apenas: aberto, em andamento, concluído.",
+      "referencia": "{\"casos\":[{\"titulo\":\"Opção permitida\",\"entrada\":\"status=aberto\",\"resultado_esperado\":\"Valor aceito.\"},{\"titulo\":\"Opção desconhecida\",\"entrada\":\"status=outro\",\"resultado_esperado\":\"Valor rejeitado; opção não permitida.\"},{\"titulo\":\"Sem seleção\",\"entrada\":\"status=vazio\",\"resultado_esperado\":\"Valor rejeitado; seleção obrigatória.\"}]}",
+      "resposta": "{\"casos\":[{\"titulo\":\"Opção permitida\",\"entrada\":\"status=aberto\",\"resultado_esperado\":\"Valor aceito.\"},{\"titulo\":\"Opção desconhecida\",\"entrada\":\"status=outro\",\"resultado_esperado\":\"Valor rejeitado; opção não permitida.\"},{\"titulo\":\"Sem seleção\",\"entrada\":\"status=vazio\",\"resultado_esperado\":\"Valor rejeitado; seleção obrigatória.\"}]}",
+      "json_valido": true,
+      "tres_casos": true,
+      "esquema_completo": true
+    },
+    {
+      "id": "ordem_datas-01",
+      "tipo": "ordem_datas",
+      "requisito": "No sistema acadêmico, na projeto, a data final deve ser igual ou posterior à data inicial.",
+      "referencia": "{\"casos\":[{\"titulo\":\"Término posterior\",\"entrada\":\"início=10/03/2026; término=12/03/2026\",\"resultado_esperado\":\"Período aceito.\"},{\"titulo\":\"Mesmo dia\",\"entrada\":\"início=10/03/2026; término=10/03/2026\",\"resultado_esperado\":\"Período aceito; datas iguais são permitidas.\"},{\"titulo\":\"Término anterior\",\"entrada\":\"início=12/03/2026; término=10/03/2026\",\"resultado_esperado\":\"Período rejeitado; término anterior ao início.\"}]}",
+      "resposta": "{\"casos\":[{\"titulo\":\"Término posterior\",\"entrada\":\"início=10/03/2028; término=15/03/2028\",\"resultado_esperado\":\"Período aceito.\"},{\"titulo\":\"Mesmo dia\",\"entrada\":\"início=10/03/2028; término=10/03/2028\",\"resultado_esperado\":\"Período aceito; datas iguais são permitidas.\"},{\"titulo\":\"Término anterior\",\"entrada\":\"início=15/03/2028; término=10/03/2028\",\"resultado_esperado\":\"Período rejeitado; término anterior ao início.\"}]}",
+      "json_valido": true,
+      "tres_casos": true,
+      "esquema_completo": true
+    },
+    {
+      "id": "obrigatorio-11",
+      "tipo": "obrigatorio",
+      "requisito": "No formulário de cadastro, o campo 'departamento' é obrigatório.",
+      "referencia": "{\"casos\":[{\"titulo\":\"Valor preenchido\",\"entrada\":\"departamento=valor válido\",\"resultado_esperado\":\"Registro aceito.\"},{\"titulo\":\"Valor vazio\",\"entrada\":\"departamento=vazio\",\"resultado_esperado\":\"Registro rejeitado; informar que o campo é obrigatório.\"},{\"titulo\":\"Apenas espaços\",\"entrada\":\"departamento=espaços em branco\",\"resultado_esperado\":\"Registro rejeitado; espaços não contam como conteúdo.\"}]}",
+      "resposta": "{\"casos\":[{\"titulo\":\"Valor preenchido\",\"entrada\":\"departamento=valor válido\",\"resultado_esperado\":\"Registro aceito.\"},{\"titulo\":\"Valor vazio\",\"entrada\":\"departamento=vazio\",\"resultado_esperado\":\"Registro rejeitado; informar que o campo é obrigatório.\"},{\"titulo\":\"Apenas espaços\",\"entrada\":\"departamento=espaços em branco\",\"resultado_esperado\":\"Registro rejeitado; espaços não contam como conteúdo.\"}]}",
+      "json_valido": true,
+      "tres_casos": true,
+      "esquema_completo": true
+    },
+    {
+      "id": "comprimento-11",
+      "tipo": "comprimento",
+      "requisito": "O campo 'departamento' deve ter entre 6 e 19 caracteres, inclusive.",
+      "referencia": "{\"casos\":[{\"titulo\":\"No limite mínimo\",\"entrada\":\"departamento com 6 caracteres\",\"resultado_esperado\":\"Valor aceito.\"},{\"titulo\":\"Abaixo do mínimo\",\"entrada\":\"departamento com 5 caracteres\",\"resultado_esperado\":\"Valor rejeitado; mínimo de 6 caracteres.\"},{\"titulo\":\"Acima do máximo\",\"entrada\":\"departamento com 20 caracteres\",\"resultado_esperado\":\"Valor rejeitado; máximo de 19 caracteres.\"}]}",
+      "resposta": "{\"casos\":[{\"titulo\":\"No limite mínimo\",\"entrada\":\"departamento com 6 caracteres\",\"resultado_esperado\":\"Valor aceito.\"},{\"titulo\":\"Abaixo da mínima\",\"entrada\":\"departamento com 5 caracteres\",\"resultado_esperado\":\"Valor rejeitado; mínimo de 6 caracteres.\"},{\"titulo\":\"Acima da máxima\",\"entrada\":\"departamento com 20 caracteres\",\"resultado_esperado\":\"Valor rejeitado; máximo de 19 caracteres.\"}]}",
+      "json_valido": true,
+      "tres_casos": true,
+      "esquema_completo": true
+    },
+    {
+      "id": "faixa_inteira-11",
+      "tipo": "faixa_inteira",
+      "requisito": "O campo 'idade' aceita inteiros de 5 a 11, incluindo os limites.",
+      "referencia": "{\"casos\":[{\"titulo\":\"Limite inferior\",\"entrada\":\"idade=5\",\"resultado_esperado\":\"Valor aceito.\"},{\"titulo\":\"Abaixo da faixa\",\"entrada\":\"idade=4\",\"resultado_esperado\":\"Valor rejeitado; mínimo permitido é 5.\"},{\"titulo\":\"Acima da faixa\",\"entrada\":\"idade=12\",\"resultado_esperado\":\"Valor rejeitado; máximo permitido é 11.\"}]}",
+      "resposta": "{\"casos\":[{\"titulo\":\"Limite inferior\",\"entrada\":\"idade=5\",\"resultado_esperado\":\"Valor aceito.\"},{\"titulo\":\"Abaixo da faixa\",\"entrada\":\"idade=4\",\"resultado_esperado\":\"Valor rejeitado; mínimo permitido é 5.\"},{\"titulo\":\"Acima da faixa\",\"entrada\":\"idade=12\",\"resultado_esperado\":\"Valor rejeitado; máximo permitido é 11.\"}]}",
+      "json_valido": true,
+      "tres_casos": true,
+      "esquema_completo": true
+    },
+    {
+      "id": "email-11",
+      "tipo": "email",
+      "requisito": "No portal de eventos, o campo 'email do fornecedor' deve conter um endereço de email válido.",
+      "referencia": "{\"casos\":[{\"titulo\":\"Endereço válido\",\"entrada\":\"email do fornecedor=ana11@exemplo.com\",\"resultado_esperado\":\"Endereço aceito.\"},{\"titulo\":\"Sem arroba\",\"entrada\":\"email do fornecedor=ana11exemplo.com\",\"resultado_esperado\":\"Endereço rejeitado por formato inválido.\"},{\"titulo\":\"Sem domínio\",\"entrada\":\"email do fornecedor=ana11@\",\"resultado_esperado\":\"Endereço rejeitado por formato inválido.\"}]}",
+      "resposta": "{\"casos\":[{\"titulo\":\"Endereço válido\",\"entrada\":\"email do fornecedor=ana12@exemplo.com\",\"resultado_esperado\":\"Endereço aceito.\"},{\"titulo\":\"Sem arroba\",\"entrada\":\"email do fornecedor=ana12exemplo.com\",\"resultado_esperado\":\"Endereço rejeitado por formato inválido.\"},{\"titulo\":\"Sem domínio\",\"entrada\":\"email do fornecedor=ana12@\",\"resultado_esperado\":\"Endereço rejeitado por formato inválido.\"}]}",
+      "json_valido": true,
+      "tres_casos": true,
+      "esquema_completo": true
+    },
+    {
+      "id": "opcoes-11",
+      "tipo": "opcoes",
+      "requisito": "No portal de eventos, o campo obrigatório 'status' aceita apenas: aberto, em andamento, concluído.",
+      "referencia": "{\"casos\":[{\"titulo\":\"Opção permitida\",\"entrada\":\"status=aberto\",\"resultado_esperado\":\"Valor aceito.\"},{\"titulo\":\"Opção desconhecida\",\"entrada\":\"status=outro\",\"resultado_esperado\":\"Valor rejeitado; opção não permitida.\"},{\"titulo\":\"Sem seleção\",\"entrada\":\"status=vazio\",\"resultado_esperado\":\"Valor rejeitado; seleção obrigatória.\"}]}",
+      "resposta": "{\"casos\":[{\"titulo\":\"Opção permitida\",\"entrada\":\"status=aberto\",\"resultado_esperado\":\"Valor aceito.\"},{\"titulo\":\"Opção desconhecida\",\"entrada\":\"status=outro\",\"resultado_esperado\":\"Valor rejeitado; opção não permitida.\"},{\"titulo\":\"Sem seleção\",\"entrada\":\"status=vazio\",\"resultado_esperado\":\"Valor rejeitado; seleção obrigatória.\"}]}",
+      "json_valido": true,
+      "tres_casos": true,
+      "esquema_completo": true
+    },
+    {
+      "id": "ordem_datas-11",
+      "tipo": "ordem_datas",
+      "requisito": "No portal de eventos, na projeto, a data final deve ser igual ou posterior à data inicial.",
+      "referencia": "{\"casos\":[{\"titulo\":\"Término posterior\",\"entrada\":\"início=10/03/2026; término=12/03/2026\",\"resultado_esperado\":\"Período aceito.\"},{\"titulo\":\"Mesmo dia\",\"entrada\":\"início=10/03/2026; término=10/03/2026\",\"resultado_esperado\":\"Período aceito; datas iguais são permitidas.\"},{\"titulo\":\"Término anterior\",\"entrada\":\"início=12/03/2026; término=10/03/2026\",\"resultado_esperado\":\"Período rejeitado; término anterior ao início.\"}]}",
+      "resposta": "{\"casos\":[{\"titulo\":\"Término posterior\",\"entrada\":\"início=10/03/2028; término=15/03/2028\",\"resultado_esperado\":\"Período aceito.\"},{\"titulo\":\"Mesmo dia\",\"entrada\":\"início=10/03/2028; término=10/03/2028\",\"resultado_esperado\":\"Período aceito; datas iguais são permitidas.\"},{\"titulo\":\"Término anterior\",\"entrada\":\"início=15/03/2028; término=10/03/2028\",\"resultado_esperado\":\"Período rejeitado; término anterior ao início.\"}]}",
+      "json_valido": true,
+      "tres_casos": true,
+      "esquema_completo": true
+    },
+    {
+      "id": "obrigatorio-21",
+      "tipo": "obrigatorio",
+      "requisito": "Ao salvar um registro, não permita que 'nome de usuário' fique sem conteúdo.",
+      "referencia": "{\"casos\":[{\"titulo\":\"Valor preenchido\",\"entrada\":\"nome de usuário=valor válido\",\"resultado_esperado\":\"Registro aceito.\"},{\"titulo\":\"Valor vazio\",\"entrada\":\"nome de usuário=vazio\",\"resultado_esperado\":\"Registro rejeitado; informar que o campo é obrigatório.\"},{\"titulo\":\"Apenas espaços\",\"entrada\":\"nome de usuário=espaços em branco\",\"resultado_esperado\":\"Registro rejeitado; espaços não contam como conteúdo.\"}]}",
+      "resposta": "{\"casos\":[{\"titulo\":\"Valor preenchido\",\"entrada\":\"nome de usuário=valor válido\",\"resultado_esperado\":\"Registro aceito.\"},{\"titulo\":\"Valor vazio\",\"entrada\":\"nome de usuário=vazio\",\"resultado_esperado\":\"Registro rejeitado; informar que o campo é obrigatório.\"},{\"titulo\":\"Apenas espaços\",\"entrada\":\"nome de usuário=espaços em branco\",\"resultado_esperado\":\"Registro rejeitado; espaços não contam como conteúdo.\"}]}",
+      "json_valido": true,
+      "tres_casos": true,
+      "esquema_completo": true
+    },
+    {
+      "id": "comprimento-21",
+      "tipo": "comprimento",
+      "requisito": "Valide 'nome de usuário': aceite no mínimo 8 e no máximo 19 caracteres.",
+      "referencia": "{\"casos\":[{\"titulo\":\"No limite mínimo\",\"entrada\":\"nome de usuário com 8 caracteres\",\"resultado_esperado\":\"Valor aceito.\"},{\"titulo\":\"Abaixo do mínimo\",\"entrada\":\"nome de usuário com 7 caracteres\",\"resultado_esperado\":\"Valor rejeitado; mínimo de 8 caracteres.\"},{\"titulo\":\"Acima do máximo\",\"entrada\":\"nome de usuário com 20 caracteres\",\"resultado_esperado\":\"Valor rejeitado; máximo de 19 caracteres.\"}]}",
+      "resposta": "{\"casos\":[{\"titulo\":\"No limite mínimo\",\"entrada\":\"nome de usuário com 8 caracteres\",\"resultado_esperado\":\"Valor aceito.\"},{\"titulo\":\"Abaixo do mínimo\",\"entrada\":\"nome de usuário com 7 caracteres\",\"resultado_esperado\":\"Valor rejeitado; mínimo de 8 caracteres.\"},{\"titulo\":\"Acima do máximo\",\"entrada\":\"nome de usuário com 20 caracteres\",\"resultado_esperado\":\"Valor rejeitado; máximo de 19 caracteres.\"}]}",
+      "json_valido": true,
+      "tres_casos": true,
+      "esquema_completo": true
+    },
+    {
+      "id": "faixa_inteira-21",
+      "tipo": "faixa_inteira",
+      "requisito": "Rejeite 'idade' quando o inteiro informado for menor que 1 ou maior que 8.",
+      "referencia": "{\"casos\":[{\"titulo\":\"Limite inferior\",\"entrada\":\"idade=1\",\"resultado_esperado\":\"Valor aceito.\"},{\"titulo\":\"Abaixo da faixa\",\"entrada\":\"idade=0\",\"resultado_esperado\":\"Valor rejeitado; mínimo permitido é 1.\"},{\"titulo\":\"Acima da faixa\",\"entrada\":\"idade=9\",\"resultado_esperado\":\"Valor rejeitado; máximo permitido é 8.\"}]}",
+      "resposta": "{\"casos\":[{\"titulo\":\"Limite inferior\",\"entrada\":\"idade=1\",\"resultado_esperado\":\"Valor aceito.\"},{\"titulo\":\"Abaixo da faixa\",\"entrada\":\"idade=0\",\"resultado_esperado\":\"Valor rejeitado; mínimo permitido é 1.\"},{\"titulo\":\"Acima da faixa\",\"entrada\":\"idade=9\",\"resultado_esperado\":\"Valor rejeitado; máximo permitido é 8.\"}]}",
+      "json_valido": true,
+      "tres_casos": true,
+      "esquema_completo": true
+    },
+    {
+      "id": "email-21",
+      "tipo": "email",
+      "requisito": "No sistema acadêmico, antes de salvar, valide a sintaxe do endereço em 'email do fornecedor'.",
+      "referencia": "{\"casos\":[{\"titulo\":\"Endereço válido\",\"entrada\":\"email do fornecedor=ana21@exemplo.com\",\"resultado_esperado\":\"Endereço aceito.\"},{\"titulo\":\"Sem arroba\",\"entrada\":\"email do fornecedor=ana21exemplo.com\",\"resultado_esperado\":\"Endereço rejeitado por formato inválido.\"},{\"titulo\":\"Sem domínio\",\"entrada\":\"email do fornecedor=ana21@\",\"resultado_esperado\":\"Endereço rejeitado por formato inválido.\"}]}",
+      "resposta": "{\"casos\":[{\"titulo\":\"Endereço válido\",\"entrada\":\"email do fornecedor=ana32@exemplo.com\",\"resultado_esperado\":\"Endereço aceito.\"},{\"titulo\":\"Sem arroba\",\"entrada\":\"email do fornecedor=ana32exemplocom\",\"resultado_esperado\":\"Endereço rejeitado por formato inválido.\"},{\"titulo\":\"Sem domínio\",\"entrada\":\"email do fornecedor=ana32@\",\"resultado_esperado\":\"Endereço rejeitado por formato inválido.\"}]}",
+      "json_valido": true,
+      "tres_casos": true,
+      "esquema_completo": true
+    },
+    {
+      "id": "opcoes-21",
+      "tipo": "opcoes",
+      "requisito": "No sistema acadêmico, valide 'status' como obrigatório e restrito às opções aberto, em andamento, concluído.",
+      "referencia": "{\"casos\":[{\"titulo\":\"Opção permitida\",\"entrada\":\"status=aberto\",\"resultado_esperado\":\"Valor aceito.\"},{\"titulo\":\"Opção desconhecida\",\"entrada\":\"status=outro\",\"resultado_esperado\":\"Valor rejeitado; opção não permitida.\"},{\"titulo\":\"Sem seleção\",\"entrada\":\"status=vazio\",\"resultado_esperado\":\"Valor rejeitado; seleção obrigatória.\"}]}",
+      "resposta": "{\"casos\":[{\"titulo\":\"Opção permitida\",\"entrada\":\"status=aberto\",\"resultado_esperado\":\"Valor aceito.\"},{\"titulo\":\"Opção desconhecida\",\"entrada\":\"status=outro\",\"resultado_esperado\":\"Valor rejeitado; opção não permitida.\"},{\"titulo\":\"Sem seleção\",\"entrada\":\"status=vazio\",\"resultado_esperado\":\"Valor rejeitado; seleção obrigatória.\"}]}",
+      "json_valido": true,
+      "tres_casos": true,
+      "esquema_completo": true
+    },
+    {
+      "id": "ordem_datas-21",
+      "tipo": "ordem_datas",
+      "requisito": "No sistema acadêmico, ao cadastrar projeto, impeça que a data de término seja anterior à data de início.",
+      "referencia": "{\"casos\":[{\"titulo\":\"Término posterior\",\"entrada\":\"início=10/03/2026; término=12/03/2026\",\"resultado_esperado\":\"Período aceito.\"},{\"titulo\":\"Mesmo dia\",\"entrada\":\"início=10/03/2026; término=10/03/2026\",\"resultado_esperado\":\"Período aceito; datas iguais são permitidas.\"},{\"titulo\":\"Término anterior\",\"entrada\":\"início=12/03/2026; término=10/03/2026\",\"resultado_esperado\":\"Período rejeitado; término anterior ao início.\"}]}",
+      "resposta": "{\"casos\":[{\"titulo\":\"Término posterior\",\"entrada\":\"início=10/03/2029; término=15/03/2029\",\"resultado_esperado\":\"Período aceito.\"},{\"titulo\":\"Mesmo dia\",\"entrada\":\"início=10/03/2029; término=10/03/2029\",\"resultado_esperado\":\"Período aceito; datas iguais são permitidas.\"},{\"titulo\":\"Término anterior\",\"entrada\":\"início=15/03/2029; término=10/03/2029\",\"resultado_esperado\":\"Período rejeitado; término anterior ao início.\"}]}",
+      "json_valido": true,
+      "tres_casos": true,
+      "esquema_completo": true
+    },
+    {
+      "id": "obrigatorio-31",
+      "tipo": "obrigatorio",
+      "requisito": "Ao salvar um registro, não permita que 'departamento' fique sem conteúdo.",
+      "referencia": "{\"casos\":[{\"titulo\":\"Valor preenchido\",\"entrada\":\"departamento=valor válido\",\"resultado_esperado\":\"Registro aceito.\"},{\"titulo\":\"Valor vazio\",\"entrada\":\"departamento=vazio\",\"resultado_esperado\":\"Registro rejeitado; informar que o campo é obrigatório.\"},{\"titulo\":\"Apenas espaços\",\"entrada\":\"departamento=espaços em branco\",\"resultado_esperado\":\"Registro rejeitado; espaços não contam como conteúdo.\"}]}",
+      "resposta": "{\"casos\":[{\"titulo\":\"Valor preenchido\",\"entrada\":\"departamento=valor válido\",\"resultado_esperado\":\"Registro aceito.\"},{\"titulo\":\"Valor vazio\",\"entrada\":\"departamento=vazio\",\"resultado_esperado\":\"Registro rejeitado; informar que o campo é obrigatório.\"},{\"titulo\":\"Apenas espaços\",\"entrada\":\"departamento=espaços em branco\",\"resultado_esperado\":\"Registro rejeitado; espaços não contam como conteúdo.\"}]}",
+      "json_valido": true,
+      "tres_casos": true,
+      "esquema_completo": true
+    },
+    {
+      "id": "comprimento-31",
+      "tipo": "comprimento",
+      "requisito": "Valide 'departamento': aceite no mínimo 10 e no máximo 19 caracteres.",
+      "referencia": "{\"casos\":[{\"titulo\":\"No limite mínimo\",\"entrada\":\"departamento com 10 caracteres\",\"resultado_esperado\":\"Valor aceito.\"},{\"titulo\":\"Abaixo do mínimo\",\"entrada\":\"departamento com 9 caracteres\",\"resultado_esperado\":\"Valor rejeitado; mínimo de 10 caracteres.\"},{\"titulo\":\"Acima do máximo\",\"entrada\":\"departamento com 20 caracteres\",\"resultado_esperado\":\"Valor rejeitado; máximo de 19 caracteres.\"}]}",
+      "resposta": "{\"casos\":[{\"titulo\":\"No limite mínimo\",\"entrada\":\"departamento com 10 caracteres\",\"resultado_esperado\":\"Valor aceito.\"},{\"titulo\":\"Abaixo do mínimo\",\"entrada\":\"departamento com 9 caracteres\",\"resultado_esperado\":\"Valor rejeitado; mínimo de 10 caracteres.\"},{\"titulo\":\"Acima do máximo\",\"entrada\":\"departamento com 20 caracteres\",\"resultado_esperado\":\"Valor rejeitado; máximo de 19 caracteres.\"}]}",
+      "json_valido": true,
+      "tres_casos": true,
+      "esquema_completo": true
+    },
+    {
+      "id": "faixa_inteira-31",
+      "tipo": "faixa_inteira",
+      "requisito": "Rejeite 'idade' quando o inteiro informado for menor que 4 ou maior que 12.",
+      "referencia": "{\"casos\":[{\"titulo\":\"Limite inferior\",\"entrada\":\"idade=4\",\"resultado_esperado\":\"Valor aceito.\"},{\"titulo\":\"Abaixo da faixa\",\"entrada\":\"idade=3\",\"resultado_esperado\":\"Valor rejeitado; mínimo permitido é 4.\"},{\"titulo\":\"Acima da faixa\",\"entrada\":\"idade=13\",\"resultado_esperado\":\"Valor rejeitado; máximo permitido é 12.\"}]}",
+      "resposta": "{\"casos\":[{\"titulo\":\"Limite inferior\",\"entrada\":\"idade=3\",\"resultado_esperado\":\"Valor aceito.\"},{\"titulo\":\"Abaixo da faixa\",\"entrada\":\"idade=2\",\"resultado_esperado\":\"Valor rejeitado; mínimo permitido é 4.\"},{\"titulo\":\"Acima da faixa\",\"entrada\":\"idade=13\",\"resultado_esperado\":\"Valor rejeitado; máximo permitido é 12.\"}]}",
+      "json_valido": true,
+      "tres_casos": true,
+      "esquema_completo": true
+    },
+    {
+      "id": "email-31",
+      "tipo": "email",
+      "requisito": "No portal de eventos, antes de salvar, valide a sintaxe do endereço em 'email do fornecedor'.",
+      "referencia": "{\"casos\":[{\"titulo\":\"Endereço válido\",\"entrada\":\"email do fornecedor=ana31@exemplo.com\",\"resultado_esperado\":\"Endereço aceito.\"},{\"titulo\":\"Sem arroba\",\"entrada\":\"email do fornecedor=ana31exemplo.com\",\"resultado_esperado\":\"Endereço rejeitado por formato inválido.\"},{\"titulo\":\"Sem domínio\",\"entrada\":\"email do fornecedor=ana31@\",\"resultado_esperado\":\"Endereço rejeitado por formato inválido.\"}]}",
+      "resposta": "{\"casos\":[{\"titulo\":\"Endereço válido\",\"entrada\":\"email do fornecedor=ana34@exemplo.com\",\"resultado_esperado\":\"Endereço aceito.\"},{\"titulo\":\"Sem arroba\",\"entrada\":\"email do fornecedor=ana34exemplocom\",\"resultado_esperado\":\"Endereço rejeitado por formato inválido.\"},{\"titulo\":\"Sem domínio\",\"entrada\":\"email do fornecedor=ana34@\",\"resultado_esperado\":\"Endereço rejeitado por formato inválido.\"}]}",
+      "json_valido": true,
+      "tres_casos": true,
+      "esquema_completo": true
+    },
+    {
+      "id": "opcoes-31",
+      "tipo": "opcoes",
+      "requisito": "No portal de eventos, valide 'status' como obrigatório e restrito às opções aberto, em andamento, concluído.",
+      "referencia": "{\"casos\":[{\"titulo\":\"Opção permitida\",\"entrada\":\"status=aberto\",\"resultado_esperado\":\"Valor aceito.\"},{\"titulo\":\"Opção desconhecida\",\"entrada\":\"status=outro\",\"resultado_esperado\":\"Valor rejeitado; opção não permitida.\"},{\"titulo\":\"Sem seleção\",\"entrada\":\"status=vazio\",\"resultado_esperado\":\"Valor rejeitado; seleção obrigatória.\"}]}",
+      "resposta": "{\"casos\":[{\"titulo\":\"Opção permitida\",\"entrada\":\"status=aberto\",\"resultado_esperado\":\"Valor aceito.\"},{\"titulo\":\"Opção desconhecida\",\"entrada\":\"status=outro\",\"resultado_esperado\":\"Valor rejeitado; opção não permitida.\"},{\"titulo\":\"Sem seleção\",\"entrada\":\"status=vazio\",\"resultado_esperado\":\"Valor rejeitado; seleção obrigatória.\"}]}",
+      "json_valido": true,
+      "tres_casos": true,
+      "esquema_completo": true
+    },
+    {
+      "id": "ordem_datas-31",
+      "tipo": "ordem_datas",
+      "requisito": "No portal de eventos, ao cadastrar projeto, impeça que a data de término seja anterior à data de início.",
+      "referencia": "{\"casos\":[{\"titulo\":\"Término posterior\",\"entrada\":\"início=10/03/2026; término=12/03/2026\",\"resultado_esperado\":\"Período aceito.\"},{\"titulo\":\"Mesmo dia\",\"entrada\":\"início=10/03/2026; término=10/03/2026\",\"resultado_esperado\":\"Período aceito; datas iguais são permitidas.\"},{\"titulo\":\"Término anterior\",\"entrada\":\"início=12/03/2026; término=10/03/2026\",\"resultado_esperado\":\"Período rejeitado; término anterior ao início.\"}]}",
+      "resposta": "{\"casos\":[{\"titulo\":\"Término posterior\",\"entrada\":\"início=10/03/2039; término=15/03/2039\",\"resultado_esperado\":\"Período aceito.\"},{\"titulo\":\"Mesmo dia\",\"entrada\":\"início=10/03/2039; término=10/03/2039\",\"resultado_esperado\":\"Período aceito; datas iguais são permitidas.\"},{\"titulo\":\"Término anterior\",\"entrada\":\"início=15/03/2039; término=10/03/2039\",\"resultado_esperado\":\"Período rejeitado; término anterior ao início.\"}]}",
+      "json_valido": true,
+      "tres_casos": true,
+      "esquema_completo": true
+    }
+  ]
+}

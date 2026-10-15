@@ -1,0 +1,11 @@
+{
+  "pytorch": "2.12.0+rocm7.14.1",
+  "rocm_hip": "7.14.60850",
+  "gpu_disponivel": true,
+  "gpu": "AMD Radeon RX 9070 XT",
+  "vram_gb": 17.1,
+  "operacao": "multiplicação de matrizes 1024x1024",
+  "resultado_na_gpu": true,
+  "resultado_finito": true,
+  "memoria_alocada_mb": 41.9
+}

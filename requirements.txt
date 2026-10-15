@@ -1,0 +1,6 @@
+# Instale primeiro PyTorch + ROCm pelo índice AMD (veja README.md).
+numpy==2.5.4
+transformers==5.19.0
+peft==0.21.2
+accelerate==1.15.0
+gradio==6.30.0

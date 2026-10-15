@@ -1,0 +1,242 @@
+[
+  {
+    "id": "comprimento-01",
+    "versao": "A",
+    "modelo": "baseline"
+  },
+  {
+    "id": "comprimento-01",
+    "versao": "B",
+    "modelo": "lora-r16-lr2e4"
+  },
+  {
+    "id": "comprimento-11",
+    "versao": "A",
+    "modelo": "lora-r16-lr2e4"
+  },
+  {
+    "id": "comprimento-11",
+    "versao": "B",
+    "modelo": "baseline"
+  },
+  {
+    "id": "comprimento-21",
+    "versao": "A",
+    "modelo": "baseline"
+  },
+  {
+    "id": "comprimento-21",
+    "versao": "B",
+    "modelo": "lora-r16-lr2e4"
+  },
+  {
+    "id": "comprimento-31",
+    "versao": "A",
+    "modelo": "lora-r16-lr2e4"
+  },
+  {
+    "id": "comprimento-31",
+    "versao": "B",
+    "modelo": "baseline"
+  },
+  {
+    "id": "email-01",
+    "versao": "A",
+    "modelo": "baseline"
+  },
+  {
+    "id": "email-01",
+    "versao": "B",
+    "modelo": "lora-r16-lr2e4"
+  },
+  {
+    "id": "email-11",
+    "versao": "A",
+    "modelo": "lora-r16-lr2e4"
+  },
+  {
+    "id": "email-11",
+    "versao": "B",
+    "modelo": "baseline"
+  },
+  {
+    "id": "email-21",
+    "versao": "A",
+    "modelo": "baseline"
+  },
+  {
+    "id": "email-21",
+    "versao": "B",
+    "modelo": "lora-r16-lr2e4"
+  },
+  {
+    "id": "email-31",
+    "versao": "A",
+    "modelo": "lora-r16-lr2e4"
+  },
+  {
+    "id": "email-31",
+    "versao": "B",
+    "modelo": "baseline"
+  },
+  {
+    "id": "faixa_inteira-01",
+    "versao": "A",
+    "modelo": "baseline"
+  },
+  {
+    "id": "faixa_inteira-01",
+    "versao": "B",
+    "modelo": "lora-r16-lr2e4"
+  },
+  {
+    "id": "faixa_inteira-11",
+    "versao": "A",
+    "modelo": "lora-r16-lr2e4"
+  },
+  {
+    "id": "faixa_inteira-11",
+    "versao": "B",
+    "modelo": "baseline"
+  },
+  {
+    "id": "faixa_inteira-21",
+    "versao": "A",
+    "modelo": "baseline"
+  },
+  {
+    "id": "faixa_inteira-21",
+    "versao": "B",
+    "modelo": "lora-r16-lr2e4"
+  },
+  {
+    "id": "faixa_inteira-31",
+    "versao": "A",
+    "modelo": "lora-r16-lr2e4"
+  },
+  {
+    "id": "faixa_inteira-31",
+    "versao": "B",
+    "modelo": "baseline"
+  },
+  {
+    "id": "obrigatorio-01",
+    "versao": "A",
+    "modelo": "baseline"
+  },
+  {
+    "id": "obrigatorio-01",
+    "versao": "B",
+    "modelo": "lora-r16-lr2e4"
+  },
+  {
+    "id": "obrigatorio-11",
+    "versao": "A",
+    "modelo": "lora-r16-lr2e4"
+  },
+  {
+    "id": "obrigatorio-11",
+    "versao": "B",
+    "modelo": "baseline"
+  },
+  {
+    "id": "obrigatorio-21",
+    "versao": "A",
+    "modelo": "baseline"
+  },
+  {
+    "id": "obrigatorio-21",
+    "versao": "B",
+    "modelo": "lora-r16-lr2e4"
+  },
+  {
+    "id": "obrigatorio-31",
+    "versao": "A",
+    "modelo": "lora-r16-lr2e4"
+  },
+  {
+    "id": "obrigatorio-31",
+    "versao": "B",
+    "modelo": "baseline"
+  },
+  {
+    "id": "opcoes-01",
+    "versao": "A",
+    "modelo": "baseline"
+  },
+  {
+    "id": "opcoes-01",
+    "versao": "B",
+    "modelo": "lora-r16-lr2e4"
+  },
+  {
+    "id": "opcoes-11",
+    "versao": "A",
+    "modelo": "lora-r16-lr2e4"
+  },
+  {
+    "id": "opcoes-11",
+    "versao": "B",
+    "modelo": "baseline"
+  },
+  {
+    "id": "opcoes-21",
+    "versao": "A",
+    "modelo": "baseline"
+  },
+  {
+    "id": "opcoes-21",
+    "versao": "B",
+    "modelo": "lora-r16-lr2e4"
+  },
+  {
+    "id": "opcoes-31",
+    "versao": "A",
+    "modelo": "lora-r16-lr2e4"
+  },
+  {
+    "id": "opcoes-31",
+    "versao": "B",
+    "modelo": "baseline"
+  },
+  {
+    "id": "ordem_datas-01",
+    "versao": "A",
+    "modelo": "baseline"
+  },
+  {
+    "id": "ordem_datas-01",
+    "versao": "B",
+    "modelo": "lora-r16-lr2e4"
+  },
+  {
+    "id": "ordem_datas-11",
+    "versao": "A",
+    "modelo": "lora-r16-lr2e4"
+  },
+  {
+    "id": "ordem_datas-11",
+    "versao": "B",
+    "modelo": "baseline"
+  },
+  {
+    "id": "ordem_datas-21",
+    "versao": "A",
+    "modelo": "baseline"
+  },
+  {
+    "id": "ordem_datas-21",
+    "versao": "B",
+    "modelo": "lora-r16-lr2e4"
+  },
+  {
+    "id": "ordem_datas-31",
+    "versao": "A",
+    "modelo": "lora-r16-lr2e4"
+  },
+  {
+    "id": "ordem_datas-31",
+    "versao": "B",
+    "modelo": "baseline"
+  }
+]

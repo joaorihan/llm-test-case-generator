@@ -112,12 +112,11 @@ Abra `http://127.0.0.1:7860`. O campo de texto recebe um requisito; o modelo aju
 
 ## Comprovar a GPU no VS Code
 
-1. Abra a pasta do repositório no VS Code e selecione o interpretador do ambiente criado: `.venv\Scripts\python.exe` dentro do repositório ou `..\..\.venv\Scripts\python.exe` se o ambiente estiver em `new-chat`.
-2. Abra o terminal integrado na raiz do repositório e execute `& $python src\gpu_check.py` após definir `$python` conforme a seção de instalação.
-3. Deixe visíveis o terminal e `src/gpu_check.py`. Capture a tela com `Win + Shift + S` e salve em `screenshots/gpu-vscode.png`.
-4. Confira que `gpu_disponivel`, `resultado_na_gpu` e `resultado_finito` aparecem como `true`; `reports/gpu_check.json` contém a mesma verificação em texto.
+A captura abaixo mostra no VS Code o [`reports/gpu_check.json`](reports/gpu_check.json) gerado pela execução local de `src/gpu_check.py`. Ela identifica a **AMD Radeon RX 9070 XT** e registra `gpu_disponivel`, `resultado_na_gpu` e `resultado_finito` como `true`.
 
-A captura deve ser feita no VS Code desta máquina para mostrar a interface e a GPU no mesmo momento.
+![Relatório da GPU aberto no VS Code](screenshots/gpu-vscode.jpg)
+
+Para refazer a verificação no terminal integrado, abra a pasta do repositório no VS Code, selecione `.venv\Scripts\python.exe` ou `..\..\.venv\Scripts\python.exe` como interpretador e execute `& $python src\gpu_check.py` após definir `$python` conforme a seção de instalação. Se a apresentação exigir especificamente o terminal na imagem, capture a saída dele junto com o código após executar esse comando.
 
 ## Estrutura do repositório
 

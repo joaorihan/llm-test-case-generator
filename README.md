@@ -78,5 +78,5 @@ A captura abaixo mostra no VS Code o [`reports/gpu_check.json`](reports/gpu_chec
 
 ![Relatório da GPU aberto no VS Code](screenshots/gpu-vscode.jpg)
 
-Para refazer a verificação no terminal integrado, abra a pasta do repositório no VS Code, selecione `.venv\Scripts\python.exe` ou `..\..\.venv\Scripts\python.exe` como interpretador e execute `& $python src\gpu_check.py` após definir `$python` conforme a seção de instalação. Se a apresentação exigir especificamente o terminal na imagem, capture a saída dele junto com o código após executar esse comando.
+Para refazer a verificação no terminal integrado deste PC, abra a pasta do repositório no VS Code e execute `& ..\..\.venv\Scripts\python.exe src\gpu_check.py`. Se o ambiente estiver dentro do repositório, use `& .\.venv\Scripts\python.exe src\gpu_check.py`. Se a apresentação exigir especificamente o terminal na imagem, capture a saída dele junto com o código após executar o comando.
 

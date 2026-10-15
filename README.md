@@ -46,7 +46,21 @@ Os exemplos cobrem seis tipos de regra: campo obrigatório, comprimento de texto
 
 ## Preparar o ambiente no Windows
 
-Execute os comandos em PowerShell, na raiz deste repositório. A [documentação da AMD](https://rocm.docs.amd.com/projects/ai-ecosystem/en/latest/frameworks/pytorch/install.html?fam=radeon&gfx=gfx1201&gpu=rx-9070-xt&i=pip&os=windows&pytorch-ver=2.12.0&w=compute) descreve a instalação para `gfx1201` e a [matriz de compatibilidade](https://rocm.docs.amd.com/en/docs-7.14.1/compatibility/compatibility-matrix.html) deve ser consultada se o driver mudar.
+Execute os comandos em PowerShell, **na raiz deste repositório** (a pasta que contém `requirements.txt` e `src`). Se o terminal mostrar `...\new-chat>`, entre primeiro com `Set-Location .\outputs\llm-test-cases-ptbr`. A [documentação da AMD](https://rocm.docs.amd.com/projects/ai-ecosystem/en/latest/frameworks/pytorch/install.html?fam=radeon&gfx=gfx1201&gpu=rx-9070-xt&i=pip&os=windows&pytorch-ver=2.12.0&w=compute) descreve a instalação para `gfx1201` e a [matriz de compatibilidade](https://rocm.docs.amd.com/en/docs-7.14.1/compatibility/compatibility-matrix.html) deve ser consultada se o driver mudar.
+
+**Se você já instalou o PyTorch em `new-chat\.venv`:** aproveite esse ambiente. A partir do terminal em `new-chat`, execute os comandos abaixo e pule a criação do ambiente e a reinstalação do PyTorch na seção seguinte.
+
+```powershell
+Set-Location .\outputs\llm-test-cases-ptbr
+$python = (Resolve-Path ..\..\.venv\Scripts\python.exe).Path
+$env:HF_HOME = (New-Item -ItemType Directory -Force ..\..\.cache\huggingface).FullName
+$env:PYTHONIOENCODING = 'utf-8'
+$env:TORCH_BLAS_PREFER_HIPBLASLT = '0'
+& $python -m pip install --no-cache-dir -r requirements.txt
+& $python src\gpu_check.py
+```
+
+Para uma instalação nova, crie o ambiente dentro do repositório:
 
 ```powershell
 py -3.13 -m venv .venv
@@ -98,8 +112,8 @@ Abra `http://127.0.0.1:7860`. O campo de texto recebe um requisito; o modelo aju
 
 ## Comprovar a GPU no VS Code
 
-1. Abra a pasta do repositório no VS Code e selecione `.venv\Scripts\python.exe` como interpretador Python.
-2. Abra o terminal integrado e execute `& .\.venv\Scripts\python.exe src\gpu_check.py`.
+1. Abra a pasta do repositório no VS Code e selecione o interpretador do ambiente criado: `.venv\Scripts\python.exe` dentro do repositório ou `..\..\.venv\Scripts\python.exe` se o ambiente estiver em `new-chat`.
+2. Abra o terminal integrado na raiz do repositório e execute `& $python src\gpu_check.py` após definir `$python` conforme a seção de instalação.
 3. Deixe visíveis o terminal e `src/gpu_check.py`. Capture a tela com `Win + Shift + S` e salve em `screenshots/gpu-vscode.png`.
 4. Confira que `gpu_disponivel`, `resultado_na_gpu` e `resultado_finito` aparecem como `true`; `reports/gpu_check.json` contém a mesma verificação em texto.
 

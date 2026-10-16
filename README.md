@@ -75,6 +75,8 @@ As métricas automáticas em `reports/*.json` são: JSON válido, presença de e
 
 Foram testadas as combinações rank 8 e taxa 0,0002; rank 16 e taxa 0,0002; rank 16 e taxa 0,0001. As três atingiram 24/24 no teste de formato; a segunda teve a menor perda de validação, **0,00930**, e foi escolhida por esse critério. Veja [a tabela completa](reports/summary.md) e [a auditoria dos enunciados reformulados](reports/audit-challenge.md). Nesta auditoria, apenas **7/12 respostas** foram classificadas como semanticamente corretas, 1 parcial e 4 incorretas. Revise os casos gerados antes de usá-los.
 
+A [revisão inicial das 48 respostas do teste](reports/revisao-assistente.md) traz notas por requisito e ressalvas metodológicas. A [apresentação do projeto](apresentacao-llm-casos-de-teste-v2.pptx) reúne método, resultados, interface e evidência da GPU, com fontes nas notas dos slides.
+
 ## Comprovar a GPU no VS Code
 
 A captura abaixo mostra no VS Code o [`reports/gpu_check.json`](reports/gpu_check.json) gerado pela execução local de `src/gpu_check.py`. Ela identifica a **AMD Radeon RX 9070 XT** e registra `gpu_disponivel`, `resultado_na_gpu` e `resultado_finito` como `true`.

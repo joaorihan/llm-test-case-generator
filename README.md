@@ -2,6 +2,8 @@
 
 Projeto da disciplina **Generative AI for Engineering**. Um modelo de linguagem local recebe um requisito curto de validação de formulário e gera três casos de teste em JSON. O projeto compara o modelo original com três ajustes finos LoRA, mede as respostas em prompts não vistos e oferece uma interface web local.
 
+O [guia de reprodução](docs/REPRODUCAO.md) reúne instalação, treino, avaliação, interface e comprovação da GPU.
+
 ## Problema e modelo escolhido
 
 - **Problema:** transformar requisitos de validação em casos de teste executáveis, com entrada e resultado esperado.
@@ -48,6 +50,7 @@ Os exemplos cobrem seis tipos de regra: campo obrigatório, comprimento de texto
 
 Execute os comandos em PowerShell, **na raiz deste repositório** (a pasta que contém `requirements.txt` e `src`). Se o terminal mostrar `...\new-chat>`, entre primeiro com `Set-Location .\outputs\llm-test-cases-ptbr`. A [documentação da AMD](https://rocm.docs.amd.com/projects/ai-ecosystem/en/latest/frameworks/pytorch/install.html?fam=radeon&gfx=gfx1201&gpu=rx-9070-xt&i=pip&os=windows&pytorch-ver=2.12.0&w=compute) descreve a instalação para `gfx1201` e a [matriz de compatibilidade](https://rocm.docs.amd.com/en/docs-7.14.1/compatibility/compatibility-matrix.html) deve ser consultada se o driver mudar.
 
+Veja os comandos para o ambiente já instalado e para uma instalação nova no [guia de reprodução](docs/REPRODUCAO.md).
 
 ## Reproduzir treino e avaliação
 
